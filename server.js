@@ -1,13 +1,13 @@
 'use strict';
 
 const express = require('express');
-
+const path = require('path');
 // Constants
-const PORT = 8080;
+const PORT = process.env.PORT || '8080';
 const HOST = '0.0.0.0';
 const config = require('./config.json')
 var mysql = require('mysql');
-
+console.log(`${HOST}:${PORT}`);
 var con = mysql.createConnection({
   host: config.mysql_host_ip,
   user: config.mysql_username,
@@ -30,6 +30,6 @@ app.get('/', (req, res) => {
     res.send(result);
   }); 
 });
-app.use('/',express.static("files"));
+app.use('/',express.static(path.join(__dirname, 'files')));
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);

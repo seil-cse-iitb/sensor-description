@@ -1,7 +1,7 @@
 {
-  "name": "kresit_tree_web_app_using_node_js",
+  "name": "server_description_and_kresit_tree",
   "version": "1.0.0",
-  "description": "kresit_tree_web_app_using_node_js",
+  "description": "server_description_and_kresit_tree",
   "author": "Sapan Tanted <sapantanted99@gmail.com>",
   "main": "server.js",
   "scripts": {
@@ -9,6 +9,6 @@
   },
   "dependencies": {
     "express": "^4.16.1",
-    "mysql" :"latest"
+    "mysql": "latest"
   }
 }
