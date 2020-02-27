@@ -26,7 +26,7 @@ http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple
  */
 "use strict";
 
-function treeBoxes(urlService, jsonData)
+function treeBoxes(urlService, jsonData,sensorDescription)
 {
 	var urlService_ = '';
 	
@@ -155,7 +155,6 @@ function treeBoxes(urlService, jsonData)
 		defs = baseSvg.append('defs');
 		initArrowDef();
 		initDropShadow();
-		
 		update(root);
 	}
 
@@ -164,7 +163,6 @@ function treeBoxes(urlService, jsonData)
 		// Compute the new tree layout
 		var nodes = tree.nodes(root).reverse(),
 			links = tree.links(nodes);
-	
 		// Check if two nodes are in collision on the ordinates axe and move them
 		breadthFirstTraversal(tree.nodes(root), collision);
 		// Normalize for fixed-depth
@@ -217,33 +215,36 @@ function treeBoxes(urlService, jsonData)
 							: (rectNode.height - rectNode.textMargin * 2)
 				})
 		.append('xhtml').html(function(d) {
-					var retText="";
-//					if (d.dataType==null || d.dataType=="" || d.URL==null || d.URL=="")
-					if (d.dataType1==null)
-					{
-						retText='<div style="width: '
-							+ (rectNode.width - rectNode.textMargin * 2) + 'px; height: '
-							+ (rectNode.height - rectNode.textMargin * 2) + 'px;" class="node-text wordwrap">'
+			var retText="";
+			var short_description = (sensorDescription[d.description_sensor_id] || {}).short_description||"";
+			var long_description = (sensorDescription[d.description_sensor_id] || {}).long_description||"";
+			if(short_description!="")
+			short_description = '<b> Description : ' + short_description + '</b><br>';
+			if (d.dataType1==null)
+			{
+				retText+='<div style="width: '
+					+ (rectNode.width - rectNode.textMargin * 2) + 'px; height: '
+					+ (rectNode.height - rectNode.textMargin * 2) + 'px;" class="node-text wordwrap">'
 //							+ '<b> <a href="' + d.URL + '" target="_"blank>' + d.nodeName + '</a></b><br><br>'
-							+ '<b>' + d.label + '</b><br><br>'
-							//+ '<b> Description : ' + d.description + '</b><br>'
+					+ '<b>' + d.label + '</b><br><br>'
+					+short_description
 //							+ '<b> Link: <a href="' + d.URL + '" target="_"blank>' + d.nodeName + '</a></b>'
-							+ '</div>';
+					+ '</div>';
 
-					}else{
-							retText='<div style="width: '
-							+ (rectNode.width - rectNode.textMargin * 2) + 'px; height: '
-							+ (rectNode.height - rectNode.textMargin * 2) + 'px;" class="node-text wordwrap">'
-							+ '<b> <a href="http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple-sensors?var-power_sensor1=' + d.power_sensor1 + '&var-power_sensor2=' + d.power_sensor2 + '&var-power_sensor3=' + d.power_sensor3 + '&var-power_sensor4=' + d.power_sensor4 + '&var-power_sensor5=' + d.power_sensor5 +'&from=now-24h&to=now&refresh=5s" target="_"blank>' + d.label + '</a></b><br><br>'
-							//+ '<b> Description : ' + d.description + '</b><br><br>'
+			}else{
+					retText+='<div style="width: '
+					+ (rectNode.width - rectNode.textMargin * 2) + 'px; height: '
+					+ (rectNode.height - rectNode.textMargin * 2) + 'px;" class="node-text wordwrap">'
+					+ '<b> <a href="http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple-sensors?var-power_sensor1=' + d.power_sensor1 + '&var-power_sensor2=' + d.power_sensor2 + '&var-power_sensor3=' + d.power_sensor3 + '&var-power_sensor4=' + d.power_sensor4 + '&var-power_sensor5=' + d.power_sensor5 +'&from=now-24h&to=now&refresh=5s" target="_"blank>' + d.label + '</a></b><br><br>'
+					+ short_description
 //							+ '<b> Datasets available: ' + d.dataType1 + '</b><br>'
 
-							+ '<b> Datasets : </b> <a href="http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple-sensors?var-power_sensor1=' + d.power_sensor1 + '&var-power_sensor2=none&var-power_sensor3=none&var-power_sensor4=none&var-power_sensor5=none&from=now-24h&to=now&refresh=5s"  target="_"blank>'+ d.dataType1 + '</a>    <a href="http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple-sensors?var-power_sensor1=' + d.power_sensor2 +' &var-power_sensor2=none&var-power_sensor3=none&var-power_sensor4=none&var-power_sensor5=none&from=now-24h&to=now&refresh=5s"  target="_"blank \>'+ d.dataType2 + '</a>     <a href="http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple-sensors?var-power_sensor1=' + d.power_sensor3 +' &var-power_sensor2=none&var-power_sensor3=none&var-power_sensor4=none&var-power_sensor5=none&from=now-24h&to=now&refresh=5s"  target="_"blank \>'+ d.dataType3 +'</a>     <a href="http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple-sensors?var-power_sensor1=' + d.power_sensor4 +' &var-power_sensor2=none&var-power_sensor3=none&var-power_sensor4=none&var-power_sensor5=none&from=now-24h&to=now&refresh=5s"  target="_"blank \>'+ d.dataType4 +'</a></br><br>'
+					+ '<b> Datasets : </b> <a href="http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple-sensors?var-power_sensor1=' + d.power_sensor1 + '&var-power_sensor2=none&var-power_sensor3=none&var-power_sensor4=none&var-power_sensor5=none&from=now-24h&to=now&refresh=5s"  target="_"blank>'+ d.dataType1 + '</a>    <a href="http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple-sensors?var-power_sensor1=' + d.power_sensor2 +' &var-power_sensor2=none&var-power_sensor3=none&var-power_sensor4=none&var-power_sensor5=none&from=now-24h&to=now&refresh=5s"  target="_"blank \>'+ d.dataType2 + '</a>     <a href="http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple-sensors?var-power_sensor1=' + d.power_sensor3 +' &var-power_sensor2=none&var-power_sensor3=none&var-power_sensor4=none&var-power_sensor5=none&from=now-24h&to=now&refresh=5s"  target="_"blank \>'+ d.dataType3 +'</a>     <a href="http://seil.cse.iitb.ac.in/grafana/d/2z8miu8Wz/power-data-visualization-multiple-sensors?var-power_sensor1=' + d.power_sensor4 +' &var-power_sensor2=none&var-power_sensor3=none&var-power_sensor4=none&var-power_sensor5=none&from=now-24h&to=now&refresh=5s"  target="_"blank \>'+ d.dataType4 +'</a></br><br>'
 //							+ '<b> Link: <a href="' + d.URL + '" target="_"blank>' + d.nodeName + '</a></b>'
-							+ '</div>';
-					}
-					return retText;
-				})
+					+ '</div>';
+			}
+			return retText;
+		})
 		.on('mouseover', function(d) {
 			$('#nodeInfoID' + d.id).css('visibility', 'hidden');
 			$('#nodeInfoTextID' + d.id).css('visibility', 'hidden');

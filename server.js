@@ -24,7 +24,7 @@ con.connect(function(err) {
 // App
 const app = express();
 app.get('/', (req, res) => {
-  con.query("SELECT * FROM "+config.mysql_table_name+" where sensor_id='"+req.query.description_sensor_id+"'", function (err, result, fields) {
+  con.query("SELECT * FROM "+config.mysql_table_name+" ", function (err, result, fields) {
     if (err) res.send(err);
     console.log(result);
     res.send(result);

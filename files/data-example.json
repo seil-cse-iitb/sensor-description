@@ -16,6 +16,7 @@
 		"power_sensor3" : "power_k_m",
 		"power_sensor4" : "none",
 		"power_sensor5" : "none",
+		"description_sensor_id":"power_k_m",
 		"description": "Kanwal Rekhi Building that houses the Dept. of Computer Science and Engineering is a four-storeyed structure, divided into 3 wings.",
 		"link" : {
 				"name" : "Link KReSIT",
