@@ -1,0 +1,14 @@
+{
+  "name": "kresit_tree_web_app_using_node_js",
+  "version": "1.0.0",
+  "description": "kresit_tree_web_app_using_node_js",
+  "author": "Sapan Tanted <sapantanted99@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "mysql" :"latest"
+  }
+}

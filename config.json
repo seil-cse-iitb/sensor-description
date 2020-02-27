@@ -1,0 +1,8 @@
+{
+	"mysql_host_ip":"10.129.149.22",
+	"mysql_port":3306,
+	"mysql_username":"root",
+	"mysql_password":"MySQL@seil",
+	"mysql_database_name":"seil_fl_cache_prod",
+	"mysql_table_name":"sensor_description"
+}

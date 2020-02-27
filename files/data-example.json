@@ -1,0 +1,353 @@
+{
+	"tree" : {
+		"nodeName" : "KReSIT",
+		"name" : "KReSIT",
+		"type" : "type3",
+		"code" : "N1",
+		"label" : "Kanwal Rekhi Building",
+		"version" : "v1.0",
+		"dataType1" : "Plug Level",
+		"dataType2" : "AC",
+		"dataType3" : "Mains",
+		"dataType4" : "",
+		"URL" : "http://seil.cse.iitb.ac.in/grafana/d/PCRfsYsWk/kresit?orgId=1",
+		"power_sensor1" : "power_k_p",
+		"power_sensor2" : "power_k_a",
+		"power_sensor3" : "power_k_m",
+		"power_sensor4" : "none",
+		"power_sensor5" : "none",
+		"description": "Kanwal Rekhi Building that houses the Dept. of Computer Science and Engineering is a four-storeyed structure, divided into 3 wings.",
+		"link" : {
+				"name" : "Link KReSIT",
+				"nodeName" : "KReSIT",
+				"direction" : "ASYN"
+			},
+		"children" : [{
+				"nodeName" : "Wing A",
+				"name" : "Wing A",
+				"type" : "type1",
+				"code" : "N2.1",
+				"label" : "Wing A",
+				"version" : "v1.0",
+				"link" : {
+						"name" : "Link KReSIT to Wing A",
+						"nodeName" : "Wing A",
+						"direction" : "SYNC"
+					},
+				"children" : [{
+						"nodeName" : "DIL",
+						"name" : "DIL",
+						"type" : "type2",
+						"code" : "N3.1",
+						"label" : "DIL (Lab)",
+						"version" : "v1.0",
+						"dataType1": "Plug Level",
+						"dataType2": "AC",
+						"dataType3": "Lights and Fans",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_dil_p",
+						"power_sensor2" : "power_k_dil_a",
+						"power_sensor3" : "power_k_dil_l",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"URL" : "http://seil.cse.iitb.ac.in/grafana/d/SGV1wfyWk/fc-kohli-office-conference-dil?orgId=1",
+						"link" : {
+								"name" : "Wing A to KReSIT",
+								"nodeName" : "DIL",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					}
+				]
+			}, {
+				"nodeName" : "Wing B",
+				"name" : "Wing B",
+				"type" : "type1",
+				"code" : "N2.2",
+				"label" : "Wing B",
+				"version" : "v1.0",
+				"link" : {
+						"name" : "Link KReSIT to Wing B",
+						"nodeName" : "Wing B",
+						"direction" : "ASYN"
+					},
+				"children" : [{
+						"nodeName" : "FCK",
+						"name" : "FCK",
+						"type" : "type2",
+						"code" : "N3.3",
+						"label" : "F.C.Kohli Auditorium",
+						"version" : "v1.0",
+						"dataType1": "AC",
+						"dataType2": "Lights",
+						"dataType3" : "",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_fck_a",
+						"power_sensor2" : "power_k_fck_l",
+						"power_sensor3" : "none",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"URL": "http://seil.cse.iitb.ac.in/grafana/d/SGV1wfyWk/fc-kohli-office-conference-dil?orgId=1",
+						"link" : {
+								"name" : "Link Wing B to FCK",
+								"nodeName" : "FCK",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					}, {
+						"nodeName" : "Server Room",
+						"name" : "Server Room",
+						"type" : "type2",
+						"code" : "N3.4",
+						"label" : "Server Room",
+						"version" : "v1.0",
+						"dataType1": "Plug level",
+						"dataType2": "AC",
+						"dataType3" : "",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_sr_p",
+						"power_sensor2" : "power_k_sr_a",
+						"power_sensor3" : "none",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"link" : {
+								"name" : "Link Wing B to Server Room",
+								"nodeName" : "Server Room",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					}, {
+						"nodeName" : "Yahoo Cluster",
+						"name" : "Yahoo Cluster",
+						"type" : "type2",
+						"code" : "N3.5",
+						"label" : "Yahoo Cluster",
+						"version" : "v1.0",
+						"dataType1": "Plug Level",
+						"dataType2": "AC",
+						"dataType3" : "",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_yc_p",
+						"power_sensor2" : "power_k_yc_a",
+						"power_sensor3" : "none",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"link" : {
+								"name" : "Link Wing B to Yahoo Cluster",
+								"nodeName" : "Yahoo Cluster",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					},{
+						"nodeName" : "Lecture Hall",
+						"name" : "Lecture Hall",
+						"type" : "type2",
+						"code" : "N3.6",
+						"label" : "Lecture Hall(Mid-size Auditorium)",
+						"version" : "v1.0",
+						"dataType1" : "AC",
+						"dataType2" : "",
+						"dataType3" : "",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_lh_a",
+						"power_sensor2" : "none",
+						"power_sensor3" : "none",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"URL" : "",
+						"link" : {
+								"name" : "Link Wing B to Lecture Hall",
+								"nodeName" : "Lecture Hall",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					},{
+						"nodeName" : "Circular Hall",
+						"name" : "Circular Hall",
+						"type" : "type2",
+						"code" : "N3.7",
+						"label" : "Circular Hall(Lab)",
+						"version" : "v1.0",
+						"dataType1" : "Plug Level 1",
+						"dataType2" : "Plug Level 2",
+						"dataType3" : "AC",
+						"dataType4" : "Lights and Fans",
+						"power_sensor1" : "power_k_ch_p1",
+						"power_sensor2" : "power_k_ch_p2",
+						"power_sensor3" : "power_k_ch_a",
+						"power_sensor4" : "power_k_ch_l",
+						"power_sensor5" : "none",
+						"URL": "http://seil.cse.iitb.ac.in/grafana/d/SozZb-yWk/circular-hall?orgId=1",
+						"link" : {
+								"name" : "Link Wing B to Circular Hall",
+								"nodeName" : "Circular Hall",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					}
+				]
+			}, {
+				"nodeName" : "Wing C",
+				"name" : "Wing C",
+				"type" : "type1",
+				"code" : "N2.3",
+				"label" : "Wing C",
+				"version" : "v1.0",
+				"dataType1" : "Plug Level",
+				"dataType2" : "AC",
+				"dataType3" : "Lights and Fans",
+				"dataType4" : "",
+				"power_sensor1" : "power_k_wc_p",
+				"power_sensor2" : "power_k_wc_a",
+				"power_sensor3" : "power_k_wc_l",
+				"power_sensor4" : "none",
+				"power_sensor5" : "none",
+				"URL": "",
+				"link" : {
+						"name" : "Link KReSIT to Wing C",
+						"nodeName" : "Wing C",
+						"direction" : "ASYN"
+					},
+				"children" : [{
+						"nodeName" : "Conference Room",
+						"name" : "Conference Room",
+						"type" : "type2",
+						"code" : "N3.8",
+						"label" : "Conference Room",
+						"version" : "v1.0",
+						"dataType1" : "Plug Level",
+						"dataType2" : "AC",
+						"dataType3" : "",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_cr_p",
+						"power_sensor2" : "power_k_cr_a",
+						"power_sensor3" : "none",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"URL": "http://seil.cse.iitb.ac.in/grafana/d/SGV1wfyWk/fc-kohli-office-conference-dil?orgId=1",
+						"link" : {
+								"name" : "Link Wing C to Conference Room",
+								"nodeName" : "Conference Room",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					}, {
+						"nodeName" : "Dept. Office",
+						"name" : "Dept. Office",
+						"type" : "type2",
+						"code" : "N3.11",
+						"label" : "Dept. Office",
+						"version" : "v1.0",
+						"dataType1": "AC",
+						"dataType2": "Lights and Fans",
+						"dataType3" : "",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_off_a",
+						"power_sensor2" : "power_k_off_l",
+						"power_sensor3" : "none",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"URL": "http://seil.cse.iitb.ac.in/grafana/d/SGV1wfyWk/fc-kohli-office-conference-dil?orgId=1",
+						"link" : {
+								"name" : "Link Wing C to Office",
+								"nodeName" : "Dept. Office",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					}, {
+						"nodeName" : "ERTS",
+						"name" : "ERTS",
+						"type" : "type2",
+						"code" : "N3.9",
+						"label" : "ERTS(Lab)",
+						"version" : "v1.0",
+						"dataType1" : "Plug Level",
+						"dataType2" : "AC",
+						"dataType3" : "Lights and Fans",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_erts_p",
+						"power_sensor2" : "power_k_erts_a",
+						"power_sensor3" : "power_k_erts_l",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"URL":"http://seil.cse.iitb.ac.in/grafana/d/ox3OsByZk/erts-seil?orgId=1",
+						"link" : {
+								"name" : "Link Wing C to ERTS",
+								"nodeName" : "ERTS",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					}, {
+						"nodeName" : "SEIL",
+						"name" : "SEIL",
+						"type" : "type2",
+						"code" : "N3.10",
+						"label" : "SEIL(Lab)",
+						"version" : "v1.0",
+						"dataType1" : "Plug Level",
+						"dataType2" : "AC",
+						"dataType3" : "Lights and Fans",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_seil_p",
+						"power_sensor2" : "power_k_seil_a",
+						"power_sensor3" : "power_k_seil_l",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"URL": "http://seil.cse.iitb.ac.in/grafana/d/ox3OsByZk/erts-seil?orgId=1",
+						"link" : {
+								"name" : "Link Wing C to SEIL",
+								"nodeName" : "SEIL",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					}
+				]
+			},{
+						"nodeName" : "Classroom IDUs",
+						"name" : "Classroom IDUs",
+						"type" : "type1",
+						"code" : "N2.12",
+						"label" : "Classroom Indoor Units",
+						"version" : "v1.0",
+						"dataType1": "AC1",
+						"dataType2" : "AC2",
+						"dataType3" : "AC3",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_clsrm_ac1",
+						"power_sensor2" : "power_k_clsrm_ac2",
+						"power_sensor3" : "power_k_clsrm_ac3",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"URL": "http://seil.cse.iitb.ac.in/grafana/d/6C-7PBsZk/classroom-acs-erts-lights-and-yahoo-serer-voltage?orgId=1",
+						"link" : {
+								"name" : "Link KReSIT to Classroom IDUs",
+								"nodeName" : "Classroom IDUs",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					}, {
+						"nodeName" : "Lab ODUs",
+						"name" : "Lab ODUs",
+						"type" : "type1",
+						"code" : "N2.13",
+						"label" : "Lab Outdoor Units",
+						"version" : "v1.0",
+						"dataType1": "ODU1",
+						"dataType2" : "ODU2",
+						"dataType3" : "ODU3",
+						"dataType4" : "",
+						"power_sensor1" : "power_k_lab_od1",
+						"power_sensor2" : "power_k_lab_od2",
+						"power_sensor3" : "power_k_lab_od3",
+						"power_sensor4" : "none",
+						"power_sensor5" : "none",
+						"link" : {
+								"name" : "Link KReSIT to Lab ODUs",
+								"nodeName" : "Lab ODUs",
+								"direction" : "ASYN"
+							},
+						"children" : []
+					}
+		]
+	}
+}
