@@ -30,6 +30,18 @@ app.get('/', (req, res) => {
     res.send(result);
   }); 
 });
+
+app.get('/:column_name/:sensor_id', (req, res) => {
+  con.query(`SELECT ${req.params.column_name} FROM `+config.mysql_table_name+` where sensor_id='${req.params.sensor_id}'`, function (err, result, fields) {
+    if (err) res.send(err);
+    console.log(result);
+    if(result.length>0)
+    res.send(`<span style="color:gray"><b>${req.params.sensor_id}:</b> `+result[0][req.params.column_name]+"</span>");
+    else
+    res.send(`<span style="color:gray"><b>${req.params.sensor_id}:</b> no description</span>`);
+
+  }); 
+});
 app.use('/',express.static(path.join(__dirname, 'files')));
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);

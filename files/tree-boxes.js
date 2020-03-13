@@ -122,7 +122,7 @@ function treeBoxes(urlService, jsonData,sensorDescription)
 		root.y0 = 0;
 	
 		baseSvg = d3.select('#tree-container').append('svg')
-	    .attr('width', width + margin.right + margin.left)
+	    .attr('width', width*2 + margin.right + margin.left)
 		.attr('height', height + margin.top + margin.bottom)
 		.attr('class', 'svgContainer')
 		.call(d3.behavior.zoom()
@@ -167,7 +167,7 @@ function treeBoxes(urlService, jsonData,sensorDescription)
 		breadthFirstTraversal(tree.nodes(root), collision);
 		// Normalize for fixed-depth
 		nodes.forEach(function(d) {
-			d.y = d.depth * (rectNode.width * 1.5);
+			d.y = d.depth * (rectNode.width * 2);
 		});
 	
 	// 1) ******************* Update the nodes *******************
@@ -197,7 +197,7 @@ function treeBoxes(urlService, jsonData,sensorDescription)
 		nodeEnter.append('g').append('rect')
 		.attr('rx', 6)
 		.attr('ry', 6)
-		.attr('width', rectNode.width)
+		.attr('width', rectNode.width*1.5)
 		.attr('height', rectNode.height)
 		.attr('class', 'node-rect')
 		.attr('fill', function (d) { return d.color; })

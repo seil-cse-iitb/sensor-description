@@ -1,0 +1,14 @@
+apps:
+  - name: temperature_prosumer
+    args: -r
+    script: ./esp-temperature/fck-esp-temperature-prosumer.py
+    exec_mode: fork
+    interpreter: /usr/bin/python
+    watch: true
+  - name: sensor_description_and_kresit_tree
+    script: ./sensor_description/server.js
+    exec_mode: fork
+    interpreter: node
+    watch: true
+    env: 
+      PORT: 8081 

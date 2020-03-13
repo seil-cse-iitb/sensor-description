@@ -16,7 +16,7 @@
         <ct-visualization id="tree-container"></ct-visualization>
         <script>
           sensorDescription={};
-          d3.json("http://seil.cse.iitb.ac.in/sensor_description", function(error, json) {
+          d3.json("https://seil.cse.iitb.ac.in/sensor_description", function(error, json) {
             json.forEach(element => {
               sensorDescription[element.sensor_id] = element;
             });

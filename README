@@ -1,5 +1,10 @@
-Get sensor description:
-http://seil.cse.iitb.ac.in/sensor_description/?description_sensor_id=power_k_m
+Get all sensor descriptions:
+http://seil.cse.iitb.ac.in/sensor_description/
+
+Get specific description field of a sensor:
+http://seil.cse.iitb.ac.in/sensor_description/<column_name>/<sensor_id>
+eg: http://seil.cse.iitb.ac.in/sensor_description/short_description/power_k_m
 
 Get kresit-tree:
 http://seil.cse.iitb.ac.in/sensor_description/kresit-tree.html
+
